@@ -158,7 +158,7 @@ def validate_review(
 
     required = ["confidence-report.md", "questions.md"]
     if doc_level in {"completo", "detalhado"}:
-        required.append("gaps.md")
+        required.extend(["gaps.md", "README.md", "transformation-guide.md"])
     if cross_review_performed:
         required.append("cross-review-result.md")
     for relative in required:

@@ -45,6 +45,8 @@ class ReviewerIntegrityTests(unittest.TestCase):
         write(self.root / "questions.md", "# Perguntas\n\n### Q-SEC-01 🔴\n\nPergunta.\n")
         write(self.root / "confidence-report.md", "# Confiança\n")
         write(self.root / "gaps.md", "# Gaps\n")
+        write(self.root / "README.md", "# Root\n")
+        write(self.root / "transformation-guide.md", "# Guide\n")
         self.validator = load_validator()
 
     def validate(self, **kwargs):
@@ -200,7 +202,7 @@ class ReviewerIntegrityTests(unittest.TestCase):
             "| Arquivos Markdown gerados | 3 |\n| Linhas de spec | 1 |\n",
         )
         by_code = {finding["code"]: finding for finding in self.validate()["findings"]}
-        self.assertEqual(4, by_code["markdown-file-count-mismatch"]["details"]["observed"])
+        self.assertEqual(6, by_code["markdown-file-count-mismatch"]["details"]["observed"])
         self.assertGreater(by_code["markdown-line-count-mismatch"]["details"]["observed"], 1)
         self.assertEqual(
             "sum(len(text.splitlines()))",

@@ -76,8 +76,10 @@ Para cada módulo `M` em `surface.json.modules`, crie a pasta `<output_folder>/<
 
 Estes ficam na raiz de `<output_folder>/`, não dentro de feature folders:
 
+- `README.md` (sempre): Documento Raiz de Onboarding (ver `references/readme-template.md`)
+- `transformation-guide.md` (sempre): Playbook de Reengenharia (ver `references/transformation-guide-template.md`)
 - `traceability/code-spec-matrix.md`, apenas se `doc_level` = `completo` ou `detalhado`
-- `openapi/<api>.yaml`, apenas se `doc_level` = `completo` ou `detalhado` (ou se a API for o produto principal no `essencial`)
+- `openapi/<unit>.yaml` (Schemas Contratuais OpenAPI / JSON Schema), apenas se `doc_level` = `completo` ou `detalhado` (ou se a unit expõe endpoints HTTP/webhooks)
 - `user-stories/<fluxo>.md`, apenas se `doc_level` = `completo` ou `detalhado`
 
 ## Princípio fundamental
@@ -109,9 +111,11 @@ Units:
   ...
 
 Globais (se aplicáveis):
-  [ ] N. openapi/<api>.yaml
-  [ ] N+1. user-stories/<fluxo>.md
-  [ ] N+2. traceability/code-spec-matrix.md
+  [ ] N. README.md
+  [ ] N+1. transformation-guide.md
+  [ ] N+2. openapi/<unit>.yaml
+  [ ] N+3. user-stories/<fluxo>.md
+  [ ] N+4. traceability/code-spec-matrix.md
 
 Digite CONTINUAR para iniciar, ou me diga se quer ajustar o plano.
 ```
@@ -145,7 +149,7 @@ Antes de oferecer a opção 2, confirme que `redator_progress` em `.reversa/stat
 
 ### Passo 3, Globais
 
-Após todos os arquivos de unit, gere os globais aplicáveis na ordem: `openapi/`, `user-stories/`, `traceability/code-spec-matrix.md` por último.
+Após todos os arquivos de unit, gere os globais aplicáveis na ordem: `README.md`, `transformation-guide.md`, `openapi/`, `user-stories/`, `traceability/code-spec-matrix.md` por último.
 
 A code-spec matrix lista, por arquivo do legado, qual unit cobre o quê:
 
@@ -198,6 +202,8 @@ Cada tarefa cita o arquivo do legado de onde o comportamento foi extraído. Crit
 
 ```
 <output_folder>/
+├── README.md                          # sempre
+├── transformation-guide.md            # sempre
 ├── <unit-1>/
 │   ├── requirements.md
 │   ├── design.md
@@ -206,7 +212,7 @@ Cada tarefa cita o arquivo do legado de onde o comportamento foi extraído. Crit
 ├── <unit-2>/
 │   └── ...
 ├── traceability/code-spec-matrix.md   # apenas completo/detalhado
-├── openapi/<api>.yaml                 # apenas completo/detalhado
+├── openapi/<unit>.yaml                # apenas completo/detalhado
 └── user-stories/<fluxo>.md            # apenas completo/detalhado
 ```
 
