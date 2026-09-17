@@ -9,10 +9,15 @@
 - [Responsabilidade 1]
 - [Responsabilidade 2]
 
-## Regras de Negócio
+## Regras de Negócio e Invariantes
 - [Regra 1] 🟢
 - [Regra 2] 🟡
 - [Comportamento desconhecido] 🔴
+
+### Invariantes de Domínio (Stack-Agnostic)
+> Condições que DEVEM permanecer estritamente verdadeiras em qualquer implementação (independente de linguagem, ORM ou framework).
+- **INV-01**: [Declaração da invariante universal de negócio] 🟢
+- **INV-02**: [Declaração de pré-condição / pós-condição estrita de estado] 🟢
 
 ## Requisitos Funcionais
 

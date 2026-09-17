@@ -39,12 +39,13 @@ Analise o histórico de commits (`git log`):
 - Reverts e seu motivo aparente
 - Use como fonte para ADRs retroativos
 
-### 2. Regras de negócio implícitas
+### 2. Regras de negócio implícitas e Invariantes
 - Condicionais complexas com lógica de domínio
 - Validações e restrições nos modelos
 - Constantes e enums com nomes de negócio
 - Comentários (mesmo antigos — são evidências)
 - TODOs e FIXMEs que revelam intenções não implementadas
+- **Invariantes de Domínio (Stack-Agnostic)**: extraia regras fundamentais de identidade, segurança, transações, concorrência e conformidade que independem de framework. Use o template em `references/domain-template.md`.
 
 ### 3. Máquinas de estado
 Para cada entidade com campos de status/estado:
@@ -64,7 +65,7 @@ Se existirem arquivos de log, identifique eventos de negócio monitorados e erro
 ## Saída
 
 **Sempre:**
-- `_reversa_sdd/domain.md` — glossário e regras de domínio
+- `_reversa_sdd/domain.md` — glossário, regras de domínio e invariantes canônicas agnósticas (conforme `references/domain-template.md`)
 
 **Condicionais por `doc_level`:**
 - `_reversa_sdd/state-machines.md` — se `completo` ou `detalhado`; se `essencial`, gere só se houver entidade central com múltiplos status

@@ -177,6 +177,9 @@ Infira a partir do código, não invente. Sinais a procurar:
 - Retry logic, circuit breakers → Disponibilidade
 Se não encontrar evidência, omita a linha. Nunca preencha sem rastreabilidade.
 
+**Invariantes de Domínio** (em `requirements.md`)
+Identifique as regras que nunca podem ser violadas na unit, descoladas de sintaxe do framework ou ORM (ex: "identidade única por email normalizado", "ações protegidas exigem estado de onboarding concluído", "dead-lettering obrigatório para falha terminal"). Documente sob `### Invariantes de Domínio (Stack-Agnostic)` com prefixo `INV-XX`.
+
 **Critérios de Aceitação** (em `requirements.md`)
 Derive dos fluxos e regras de negócio documentados em `design.md` (ou diretamente do código). Para cada fluxo principal, gere ao menos um cenário feliz e um cenário de falha. Use `Dado / Quando / Então` sem exceção.
 
