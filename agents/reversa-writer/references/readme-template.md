@@ -5,14 +5,14 @@ Esta especificação contém a documentação executável gerada por engenharia 
 
 ## Topologia de Artefatos
 
-O repositório de specs está organizado em pastas por unidades lógicas (módulos, casos de uso ou endpoints). Cada unidade contém os seguintes artefatos canônicos:
+O repositório de specs está organizado em pastas por unidades lógicas (módulos, casos de uso ou endpoints). Cada unidade contém APENAS os seguintes 3 artefatos canônicos:
 
 * **`requirements.md` (O QUE):** Critérios de aceite, requisitos não-funcionais (performance, segurança) e Invariantes de Domínio.
 * **`design.md` (COMO):** Modelagem de dados, arquitetura interna, dependências, fluxos e tratamento de erros.
 * **`tasks.md` (PLANO):** Breakdown técnico de tarefas com Definition of Done.
-* **`domain.md` (REGRAS/INVARIANTES):** (se aplicável) Dicionário de domínio, agregação de regras core.
 
 Além disso, a raiz contém:
+* `domain.md`: Dicionário de domínio, agregação de regras core e invariantes globais.
 * `transformation-guide.md`: Playbook de reconstrução arquitetural.
 * `openapi/`: Contratos de integração (HTTP/Webhooks).
 * `traceability/code-spec-matrix.md`: Matriz de cobertura.

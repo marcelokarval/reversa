@@ -102,14 +102,33 @@ class ReviewerIntegrityTests(unittest.TestCase):
         (self.root / "confidence-report.md").unlink()
         (self.root / "gaps.md").unlink()
         result = self.validate()
-        self.assertEqual(
-            ["confidence-report.md", "gaps.md"],
-            [
-                finding["details"]["path"]
-                for finding in result["findings"]
-                if finding["code"] == "missing-required-artifact"
-            ],
-        )
+        missing_paths = [
+            finding["details"]["path"]
+            for finding in result["findings"]
+            if finding["code"] == "missing-required-artifact"
+        ]
+        self.assertIn("confidence-report.md", missing_paths)
+        self.assertIn("gaps.md", missing_paths)
+
+    def test_rejects_missing_readme(self) -> None:
+        (self.root / "README.md").unlink()
+        result = self.validate()
+        missing_paths = [
+            finding["details"]["path"]
+            for finding in result["findings"]
+            if finding["code"] == "missing-required-artifact"
+        ]
+        self.assertIn("README.md", missing_paths)
+
+    def test_rejects_missing_transformation_guide(self) -> None:
+        (self.root / "transformation-guide.md").unlink()
+        result = self.validate()
+        missing_paths = [
+            finding["details"]["path"]
+            for finding in result["findings"]
+            if finding["code"] == "missing-required-artifact"
+        ]
+        self.assertIn("transformation-guide.md", missing_paths)
 
     def test_rejects_conflicting_question_severity(self) -> None:
         write(

@@ -96,7 +96,7 @@ Estes ficam na raiz de `<output_folder>/`, não dentro de feature folders:
 
 1. Resolva a lista de units conforme a tabela de `granularity` acima.
 2. Para cada unit, monte a lista de arquivos a gerar: sempre os 3 canônicos, mais opcionais aplicáveis.
-3. Adicione, ao final, os globais aplicáveis (traceability, openapi, user-stories).
+3. Adicione, ao final, os globais obrigatórios (`README.md` e `transformation-guide.md`) e os demais aplicáveis (`openapi`, `user-stories`, `traceability`).
 
 Apresente o plano ao usuário neste formato (ajuste o idioma conforme `chat_language`):
 
@@ -110,9 +110,9 @@ Units:
   [ ] 4. <unit-1>/contracts.md (opcional, se aplicável)
   ...
 
-Globais (se aplicáveis):
-  [ ] N. README.md
-  [ ] N+1. transformation-guide.md
+Globais (obrigatórios e se aplicáveis):
+  [ ] N. README.md (obrigatório)
+  [ ] N+1. transformation-guide.md (obrigatório)
   [ ] N+2. openapi/<unit>.yaml
   [ ] N+3. user-stories/<fluxo>.md
   [ ] N+4. traceability/code-spec-matrix.md
